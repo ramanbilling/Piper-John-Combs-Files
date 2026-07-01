@@ -3,280 +3,354 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXPOSED • PIPER JOHN COMBS FILES</title>
+    <title>TRUTH EXPOSED NETWORK • PIPER JOHN COMBS FILES</title>
     
     <!-- Favicon -->
     <link rel="icon" href="https://i.postimg.cc/dtvjL6nR/446-4463647-knifekirby-discord-emoji-kirby-with-knife-discord-transparent.jpg" type="image/png">
-    <link rel="shortcut icon" href="https://i.postimg.cc/dtvjL6nR/446-4463647-knifekirby-discord-emoji-kirby-with-knife-discord-transparent.jpg" type="image/png">
     
-    <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.min.css">
+    <!-- Tailwind for clean modern CNN-style UI -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-       
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-       
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Playfair+Display:wght@700&amp;display=swap');
+        
         body {
-            background: #0a0a0a;
-            color: #ddd;
-            font-family: 'Press Start 2P', system-ui;
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
         }
-       
-        header {
-            width: 100%;
-            max-width: 620px;
-            background: #000;
-            border-bottom: 8px solid #ff0000;
-            padding: 20px 15px;
-            text-align: center;
+        
+        .headline-font {
+            font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+            font-weight: 700;
+            line-height: 1.05;
         }
-       
-        .logo {
-            font-size: 1.85rem;
-            color: #ffcc00;
-            text-shadow: 4px 4px 0 #000;
-            margin-bottom: 6px;
-            letter-spacing: 2px;
+
+        .cnn-red { color: #cc0000; }
+
+        .section-header {
+            border-bottom: 3px solid #cc0000;
+            padding-bottom: 8px;
         }
-       
-        .news-ticker {
-            width: 100%;
-            max-width: 620px;
-            background: #c00;
-            color: white;
-            padding: 10px 15px;
-            font-size: 0.82rem;
+
+        .news-card {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .news-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+
+        .ticker {
             overflow: hidden;
             white-space: nowrap;
-            border-bottom: 4px solid #ffcc00;
-            position: relative;
         }
-       
-        .news-ticker::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 60px;
-            height: 100%;
-            background: linear-gradient(to right, transparent, #c00);
-        }
-       
-        .main-container {
-            width: 100%;
-            max-width: 620px;
-            padding: 20px 15px;
-            flex: 1;
-        }
-       
-        .wanted-poster {
-            border: 8px solid #fff;
-            background: #1a0000;
-            padding: 15px;
-            box-shadow: 0 0 25px #ff0000, 0 0 40px #880000;
-            margin: 25px auto;
-        }
-       
-        .portrait {
-            width: 100%;
-            max-width: 280px;
-            height: 280px;
-            background: url('https://i.postimg.cc/dtvjL6nR/446-4463647-knifekirby-discord-emoji-kirby-with-knife-discord-transparent.jpg') center/contain no-repeat;
-            border: 6px solid #fff;
-            margin: 0 auto 15px;
-            display: block;
-            image-rendering: pixelated;
-            box-shadow: 0 0 15px #ff0000;
-        }
-       
-        .quote-box {
-            background: #220000;
-            border: 4px solid #ff4444;
-            padding: 18px;
-            margin: 25px 0;
-            text-align: center;
-            font-style: italic;
-        }
-       
-        .countdown-box {
-            background: #000;
-            border: 6px solid #00cc00;
-            padding: 20px;
-            margin: 30px auto;
-            text-align: center;
-            box-shadow: 0 0 20px #00ff00;
-        }
-       
-        .content-box {
-            background: #111;
-            border: 4px solid #666;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-       
-        .headline {
-            color: #ff4444;
-            text-align: center;
-            margin-bottom: 20px;
-            font-size: 1.35rem;
-            text-shadow: 2px 2px 0 #000;
-        }
-       
-        footer {
-            width: 100%;
-            max-width: 620px;
-            text-align: center;
-            padding: 25px 15px;
-            color: #555;
-            font-size: 0.75rem;
-            border-top: 4px solid #222;
-        }
-       
-        @keyframes ticker {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-       
         .ticker-content {
             display: inline-block;
-            padding-right: 50px;
-            animation: ticker 25s linear infinite;
+            animation: ticker-slide 30s linear infinite;
         }
-       
-        @media (max-width: 480px) {
-            .portrait {
-                height: 240px;
-                max-width: 240px;
-            }
-            .logo {
-                font-size: 1.55rem;
-            }
+        @keyframes ticker-slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .wanted-visual {
+            background: linear-gradient(145deg, #1a0000 0%, #2a0000 100%);
+        }
+
+        .modern-nav {
+            background: #111111;
+        }
+
+        .article-text {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #27251f;
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo">TRUTH EXPOSED NETWORK</div>
-        <div style="color:#ff6666; font-size:0.9rem;">THE DAY THE TRUTH DROPS</div>
-    </header>
-   
-    <div class="news-ticker nes-container is-dark">
-        <div class="ticker-content">
-            ★ JULY 31 2026 — 9:00 AM ★ ALL PIPER JOHN COMBS FILES GO PUBLIC ★ REVEALING THE FULL EMPIRE ★
+<body class="bg-zinc-50 text-zinc-900">
+    <!-- Top Navigation - Clean CNN Style -->
+    <nav class="modern-nav text-white sticky top-0 z-50 border-b border-zinc-800">
+        <div class="max-w-screen-xl mx-auto px-6">
+            <div class="flex items-center justify-between h-14">
+                <!-- Logo -->
+                <div class="flex items-center gap-x-2.5">
+                    <span class="text-3xl font-black tracking-[-2px] cnn-red">TEN</span>
+                    <span class="text-[21px] font-semibold tracking-tight">Truth Exposed Network</span>
+                </div>
+                
+                <!-- Nav Links -->
+                <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
+                    <a href="#the-drop" class="hover:text-red-400 transition-colors">The Drop</a>
+                    <a href="#next" class="hover:text-red-400 transition-colors">Next Files</a>
+                    <a href="#live" class="hover:text-red-400 transition-colors">Live</a>
+                </div>
+                
+                <div class="flex items-center gap-x-3">
+                    <div class="hidden sm:flex items-center bg-zinc-800 text-[10px] px-3 py-1 rounded font-mono tracking-widest">
+                        <i class="fa-solid fa-circle text-emerald-400 mr-1.5 animate-pulse"></i>
+                        LIVE
+                    </div>
+                    <button onclick="window.location.reload()" 
+                            class="text-xs px-4 py-1.5 border border-white/30 hover:bg-white/10 rounded transition flex items-center gap-x-2">
+                        <i class="fa-solid fa-sync text-xs"></i>
+                        <span class="hidden sm:inline text-xs">REFRESH</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Breaking Ticker -->
+    <div class="bg-[#cc0000] text-white py-[9px]">
+        <div class="max-w-screen-xl mx-auto px-6 flex items-center text-sm">
+            <span class="font-black tracking-[1.5px] text-xs bg-white text-[#cc0000] px-3 py-px rounded mr-4 flex-shrink-0">BREAKING</span>
+            <div class="ticker flex-1 overflow-hidden">
+                <div class="ticker-content text-sm font-medium flex items-center gap-x-6">
+                    <span>★ JULY 31 2026 — 9:00 AM ★ ALL PIPER JOHN COMBS FILES GO PUBLIC ★ REVEALING THE FULL EMPIRE ★</span>
+                    <span class="hidden md:inline">• MORE NAMES DROPPING IF THEY ACT FUNNY •</span>
+                    <span>★ JULY 31 2026 — 9:00 AM ★ ALL PIPER JOHN COMBS FILES GO PUBLIC ★ REVEALING THE FULL EMPIRE ★</span>
+                </div>
+            </div>
         </div>
     </div>
-   
-    <div class="main-container">
-        <!-- Wanted Poster -->
-        <div class="wanted-poster nes-container is-dark">
-            <div style="text-align:center; color:#ffcc00; font-size:1.1rem; margin-bottom:12px;">
-                WANTED • FOR CRIMES AGAINST TRUTH
+
+    <div class="max-w-screen-xl mx-auto px-6 pt-9 pb-20">
+        
+        <!-- Hero Headline -->
+        <div class="max-w-[820px] mx-auto">
+            <div class="flex items-center gap-x-3 mb-3">
+                <span class="bg-[#cc0000] text-white text-[10px] font-black px-4 py-1 tracking-[1.5px] rounded">INVESTIGATIVE EXCLUSIVE</span>
+                <span class="text-xs text-zinc-500 font-mono">JULY 2, 2026 • 06:46 NZST</span>
             </div>
-            <div class="portrait"></div>
-            <div style="text-align:center; line-height:1.5;">
-                <strong style="color:#ffdddd; font-size:1.05rem;">DO NOT LET HER BEAUTIFUL FACE FOOL YOU</strong><br>
-                <span style="color:#ffaaaa;">She looks innocent.</span><br>
-                <span style="color:#ff6666;">She is NOT.</span>
-            </div>
-        </div>
-       
-        <!-- Raman's Message -->
-        <div class="quote-box nes-container is-dark">
-            <strong style="color:#ffcc00;">MESSAGE FROM RAMAN TO PIPER:</strong><br><br>
-            <span style="color:#ffaaaa; font-size:1.1rem;">Shawty, go pack your bags but for prison.</span>
-        </div>
-       
-        <!-- Countdown -->
-        <div class="countdown-box nes-container is-rounded">
-            <div style="color:#00ff00; margin-bottom:15px; font-size:1rem;">
-                COUNTDOWN TO FULL DISCLOSURE
-            </div>
-            <div id="timer" style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
-                <div style="text-align:center;">
-                    <span id="days" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
-                    <span style="font-size:0.75rem;">DAYS</span>
-                </div>
-                <div style="text-align:center;">
-                    <span id="hours" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
-                    <span style="font-size:0.75rem;">HOURS</span>
-                </div>
-                <div style="text-align:center;">
-                    <span id="minutes" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
-                    <span style="font-size:0.75rem;">MIN</span>
-                </div>
-                <div style="text-align:center;">
-                    <span id="seconds" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
-                    <span style="font-size:0.75rem;">SEC</span>
-                </div>
-            </div>
-        </div>
-       
-        <!-- Main Content -->
-        <div class="content-box nes-container is-dark">
-            <h2 class="headline">THE PIPER JOHN COMBS EXPOSÉ</h2>
-           
-            <p style="margin-bottom:18px;">
-                On <strong>July 31, 2026 at 9:00 AM</strong>, the complete files exposing the criminal empire of
+            
+            <h1 class="headline-font text-[56px] md:text-[64px] leading-[0.95] tracking-[-2.2px] mb-5">
+                THE PIPER JOHN COMBS EXPOSÉ
+            </h1>
+            
+            <p class="text-[21px] text-zinc-700 max-w-3xl">
+                On <strong>July 31, 2026 at 9:00 AM</strong>, the complete files exposing the criminal empire of 
                 <strong>Piper John Combs</strong> will be released to the public.
             </p>
-           
-            <div style="background:#300; padding:18px; border-left:6px solid #ff0000; margin:20px 0;">
-                <strong>WARNING TO THE PUBLIC:</strong><br>
-                She looks innocent, but she is no less vicious than Daddy John Combs.
+            
+            <div class="mt-5 flex items-center gap-x-4 text-sm">
+                <div class="flex items-center">
+                    <div class="w-7 h-7 bg-zinc-200 rounded-full flex items-center justify-center text-[10px] font-bold">TEN</div>
+                    <span class="ml-2.5">By <span class="font-semibold">TEN Investigations Team</span></span>
+                </div>
+                <span class="text-zinc-400">•</span>
+                <span class="text-xs text-zinc-500">10+ whistleblowers • Internal documents • Digital forensics</span>
             </div>
-           
-            <h3 style="color:#ffcc00; margin:20px 0 12px;">WHAT WILL BE REVEALED</h3>
-            <ul style="padding-left:20px; color:#ccc; line-height:1.8;">
-                <li>Financial crimes and money trails</li>
-                <li>Hidden networks and operations</li>
-                <li>Victim testimonies and evidence</li>
-                <li>Internal communications</li>
-                <li>The full scope of her activities</li>
-            </ul>
         </div>
+
+        <!-- Main Content -->
+        <div class="max-w-[820px] mx-auto mt-10">
+            
+            <!-- Wanted Visual -->
+            <div id="the-drop" class="wanted-visual rounded-3xl p-9 text-white mb-9 border-[7px] border-white shadow-2xl">
+                <div class="flex justify-between items-start mb-7">
+                    <div>
+                        <div class="inline-block text-xs font-black tracking-[2px] bg-white/20 px-4 py-1 rounded mb-3">WANTED • FOR CRIMES AGAINST TRUTH</div>
+                        <div class="text-4xl font-bold tracking-[-1px]">PIPER JOHN COMBS</div>
+                    </div>
+                    <i class="fa-solid fa-exclamation-triangle text-5xl text-red-400/70"></i>
+                </div>
+                
+                <!-- Portrait -->
+                <div class="flex justify-center my-7">
+                    <div class="w-[260px] h-[260px] rounded-2xl border-[6px] border-white overflow-hidden shadow-inner"
+                         style="background: url('https://i.postimg.cc/dtvjL6nR/446-4463647-knifekirby-discord-emoji-kirby-with-knife-discord-transparent.jpg') center/contain no-repeat; image-rendering: pixelated; background-color: #111;">
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <p class="font-bold text-2xl text-red-100 tracking-tight">DO NOT LET HER BEAUTIFUL FACE FOOL YOU</p>
+                    <p class="mt-1 text-red-300">She looks innocent.</p>
+                    <p class="text-red-400 font-semibold">She is NOT.</p>
+                </div>
+            </div>
+            
+            <!-- Raman Message - Kept Exactly -->
+            <div class="bg-white border border-zinc-200 rounded-3xl p-8 mb-8">
+                <div class="uppercase text-xs font-bold tracking-[1.5px] text-[#cc0000] mb-3 flex items-center gap-x-2">
+                    <i class="fa-solid fa-comment"></i>
+                    <span>MESSAGE FROM RAMAN TO PIPER</span>
+                </div>
+                <p class="text-3xl leading-tight font-medium text-zinc-800">
+                    Shawty, go pack your bags but for prison.
+                </p>
+            </div>
+            
+            <!-- Warning - Kept Exactly -->
+            <div class="bg-red-950 text-red-100 rounded-3xl p-8 mb-9">
+                <div class="flex gap-x-4">
+                    <i class="fa-solid fa-exclamation-circle text-3xl mt-0.5 text-red-400"></i>
+                    <div>
+                        <div class="font-bold text-xl mb-1">WARNING TO THE PUBLIC</div>
+                        <p class="text-red-200">She looks innocent, but she is no less vicious than Daddy John Combs.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- What Will Be Revealed - Kept Exactly -->
+            <div>
+                <h3 class="font-semibold text-2xl mb-5 tracking-tight">WHAT WILL BE REVEALED</h3>
+                <ul class="space-y-[13px] text-[17px]">
+                    <li class="flex items-start gap-x-3.5"><i class="fa-solid fa-check text-emerald-500 mt-1.5"></i> <span>Financial crimes and money trails</span></li>
+                    <li class="flex items-start gap-x-3.5"><i class="fa-solid fa-check text-emerald-500 mt-1.5"></i> <span>Hidden networks and operations</span></li>
+                    <li class="flex items-start gap-x-3.5"><i class="fa-solid fa-check text-emerald-500 mt-1.5"></i> <span>Victim testimonies and evidence</span></li>
+                    <li class="flex items-start gap-x-3.5"><i class="fa-solid fa-check text-emerald-500 mt-1.5"></i> <span>Internal communications</span></li>
+                    <li class="flex items-start gap-x-3.5"><i class="fa-solid fa-check text-emerald-500 mt-1.5"></i> <span>The full scope of her activities</span></li>
+                </ul>
+            </div>
+            
+        </div>
+        
+        <!-- NEXT EXPOSÉS Section -->
+        <div id="next" class="max-w-[820px] mx-auto mt-16">
+            <div class="flex items-baseline justify-between mb-6">
+                <div>
+                    <span class="text-xs font-black tracking-widest bg-amber-500 text-white px-4 py-1 rounded">CONDITIONAL RELEASE</span>
+                    <h2 class="headline-font text-5xl tracking-[-1.5px] mt-1">NEXT EXPOSÉS</h2>
+                </div>
+                <div class="text-right hidden md:block">
+                    <span class="text-amber-600 font-semibold">IF THEY TRY TO ACT FUNNY...</span>
+                </div>
+            </div>
+            
+            <p class="text-lg text-zinc-600 mb-7 max-w-2xl">
+                These files are already compiled and verified. One wrong move, one joke about leaving OE, one thing too far, and they drop immediately.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+                
+                <div class="news-card bg-white border border-zinc-200 rounded-3xl p-6">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-[10px] font-black px-3 py-1 bg-red-100 text-red-600 rounded">FILE READY</span>
+                        <i class="fa-solid fa-shoe-prints text-2xl text-zinc-200"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl tracking-tight">JORDAN • THE FEET FILES</h4>
+                    <p class="mt-3 text-zinc-600">The secret collection. The obsession he thought stayed private. The late-night activity logs. The hidden folder no one was supposed to find.</p>
+                    <div class="mt-5 text-xs font-medium text-emerald-600 flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>READY FOR IMMEDIATE RELEASE</span>
+                    </div>
+                </div>
+                
+                <div class="news-card bg-white border border-zinc-200 rounded-3xl p-6">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-[10px] font-black px-3 py-1 bg-red-100 text-red-600 rounded">FILE READY</span>
+                        <i class="fa-solid fa-car text-2xl text-zinc-200"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl tracking-tight">SAUMYA • COKE RUNS</h4>
+                    <p class="mt-3 text-zinc-600">The midnight deliveries. The routes that weren't for pastries. Multiple witnesses. Multiple handoffs. The pattern is undeniable.</p>
+                    <div class="mt-5 text-xs font-medium text-emerald-600 flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>READY FOR IMMEDIATE RELEASE</span>
+                    </div>
+                </div>
+                
+                <div class="news-card bg-white border border-zinc-200 rounded-3xl p-6">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-[10px] font-black px-3 py-1 bg-red-100 text-red-600 rounded">FILE READY</span>
+                        <i class="fa-solid fa-bread-slice text-2xl text-zinc-200"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl tracking-tight">HARMONY • BAKERY MONEY LAUNDERING</h4>
+                    <p class="mt-3 text-zinc-600">Fresh pastries or fresh cash? The books don't add up. The sudden "renovations". The cash deposits that match no sales records.</p>
+                    <div class="mt-5 text-xs font-medium text-emerald-600 flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>READY FOR IMMEDIATE RELEASE</span>
+                    </div>
+                </div>
+                
+                <div class="news-card bg-white border border-zinc-200 rounded-3xl p-6">
+                    <div class="flex justify-between mb-4">
+                        <span class="text-[10px] font-black px-3 py-1 bg-red-100 text-red-600 rounded">FILE READY</span>
+                        <i class="fa-solid fa-question-circle text-2xl text-zinc-200"></i>
+                    </div>
+                    <h4 class="font-bold text-2xl tracking-tight">KAITLIN • THE 2 SME QUERIES</h4>
+                    <p class="mt-3 text-zinc-600">Just Two SME queries. Over four hours. The same thing done again and again. A masterclass in stalling, avoidance, or something more calculated?</p>
+                    <div class="mt-5 text-xs font-medium text-emerald-600 flex items-center gap-x-1.5">
+                        <i class="fa-solid fa-check-circle"></i>
+                        <span>READY FOR IMMEDIATE RELEASE</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-6 bg-amber-50 border-l-4 border-amber-400 p-5 text-sm rounded-2xl">
+                <strong class="text-amber-700">OFFICIAL NOTICE:</strong> Any attempt to interfere with the July 31 drop, make jokes, post memes, or "act funny" about these matters will trigger the immediate public release of all four additional files above.
+            </div>
+        </div>
+        
+        <!-- Live Updates -->
+        <div id="live" class="max-w-[820px] mx-auto mt-14">
+            <div class="bg-white border border-zinc-200 rounded-3xl p-7">
+                <div class="flex items-center gap-x-3 mb-5">
+                    <div class="flex items-center gap-x-2">
+                        <div class="w-2.5 h-2.5 bg-emerald-500 rounded-full animate-pulse"></div>
+                        <span class="font-bold text-xl">LIVE FROM THE TEN NEWSROOM</span>
+                    </div>
+                    <span class="ml-auto text-[10px] px-3 py-1 bg-emerald-100 text-emerald-700 rounded font-mono tracking-widest">AUTO-UPDATING</span>
+                </div>
+                
+                <div class="text-sm space-y-2.5 text-zinc-600">
+                    <div><span class="font-mono text-emerald-600 w-14 inline-block">06:46</span> Countdown clock stable. No interference detected.</div>
+                    <div><span class="font-mono text-emerald-600 w-14 inline-block">06:15</span> Additional whistleblower statements secured overnight.</div>
+                    <div><span class="font-mono text-emerald-600 w-14 inline-block">05:50</span> Legal review of Piper files complete. Green light for drop.</div>
+                    <div><span class="font-mono text-emerald-600 w-14 inline-block">04:30</span> "Next" files remain on standby pending any activity from named individuals.</div>
+                </div>
+            </div>
+        </div>
+        
     </div>
-   
-    <footer>
-        TRUTH EXPOSED NETWORK • UNCENSORED • JULY 31 2026<br>
-        THE MASK COMES OFF
+    
+    <footer class="border-t py-8 bg-white">
+        <div class="max-w-screen-xl mx-auto px-6 text-center text-xs text-zinc-500">
+            TRUTH EXPOSED NETWORK • UNCENSORED INVESTIGATIVE REPORTING<br>
+            <span class="text-[10px]">This is dramatized content. All individuals mentioned have been notified of the pending release.</span>
+        </div>
     </footer>
-   
+
     <script>
+        // Countdown
         const targetDate = new Date("2026-07-31T09:00:00").getTime();
-       
+        
         function updateCountdown() {
             const now = new Date().getTime();
             const distance = targetDate - now;
-           
+            
             if (distance < 0) {
-                document.getElementById("timer").innerHTML = `
-                    <span style="color:#ff0000; font-size:1.8rem; text-align:center;">
-                        THE FILES ARE NOW PUBLIC
-                    </span>`;
+                document.getElementById("timer").innerHTML = `<div class="col-span-4 text-center"><span class="text-red-600 text-2xl font-bold">THE FILES ARE NOW PUBLIC</span></div>`;
                 return;
             }
-           
+            
             const days = Math.floor(distance / (1000 * 60 * 60 * 24));
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
             const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-           
+            
             document.getElementById("days").textContent = String(days).padStart(2, '0');
             document.getElementById("hours").textContent = String(hours).padStart(2, '0');
             document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
             document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
         }
-       
+        
         setInterval(updateCountdown, 1000);
         updateCountdown();
+        
+        // Keyboard shortcut
+        document.addEventListener('keydown', function(e) {
+            if (e.key.toLowerCase() === 'n') {
+                const nextSection = document.getElementById('next');
+                if (nextSection) {
+                    nextSection.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    nextSection.style.boxShadow = '0 0 0 5px rgb(245 158 11)';
+                    setTimeout(() => { if (nextSection) nextSection.style.boxShadow = 'none'; }, 1400);
+                }
+            }
+        });
+        
+        console.log('%c[TEN] Clean CNN-style UI loaded. Press N for Next Exposés.', 'color:#666');
     </script>
 </body>
 </html>
