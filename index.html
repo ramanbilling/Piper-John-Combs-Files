@@ -84,7 +84,8 @@
             width: 100%;
             max-width: 280px;
             height: 280px;
-            background: url('https://picsum.photos/id/1011/600/600') center/cover;
+            background: url('https://i.postimg.cc/dtvjL6nR/446-4463647-knifekirby-discord-emoji-kirby-with-knife-discord-transparent.jpg') center/cover;
+            background-size: contain;
             border: 6px solid #fff;
             margin: 0 auto 15px;
             display: block;
@@ -126,7 +127,6 @@
             border-top: 4px solid #222;
         }
        
-        /* Scrolling ticker animation */
         @keyframes ticker {
             0% { transform: translateX(0); }
             100% { transform: translateX(-100%); }
@@ -145,9 +145,6 @@
             }
             .logo {
                 font-size: 1.55rem;
-            }
-            #timer {
-                gap: 12px;
             }
         }
     </style>
@@ -259,7 +256,6 @@
             document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
         }
        
-        // Update every second
         setInterval(updateCountdown, 1000);
         updateCountdown();
     </script>
