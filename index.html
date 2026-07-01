@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EXPOSED • PIPER JOHN COMBS FILES</title>
+    <link rel="stylesheet" href="https://unpkg.com/nes.css/css/nes.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+       
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+       
+        body {
+            background: #0a0a0a;
+            color: #ddd;
+            font-family: 'Press Start 2P', system-ui;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+       
+        header {
+            width: 100%;
+            max-width: 620px;
+            background: #000;
+            border-bottom: 8px solid #ff0000;
+            padding: 20px 15px;
+            text-align: center;
+        }
+       
+        .logo {
+            font-size: 1.85rem;
+            color: #ffcc00;
+            text-shadow: 4px 4px 0 #000;
+            margin-bottom: 6px;
+            letter-spacing: 2px;
+        }
+       
+        .news-ticker {
+            width: 100%;
+            max-width: 620px;
+            background: #c00;
+            color: white;
+            padding: 10px 15px;
+            font-size: 0.82rem;
+            overflow: hidden;
+            white-space: nowrap;
+            border-bottom: 4px solid #ffcc00;
+            position: relative;
+        }
+       
+        .news-ticker::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 60px;
+            height: 100%;
+            background: linear-gradient(to right, transparent, #c00);
+        }
+       
+        .main-container {
+            width: 100%;
+            max-width: 620px;
+            padding: 20px 15px;
+            flex: 1;
+        }
+       
+        .wanted-poster {
+            border: 8px solid #fff;
+            background: #1a0000;
+            padding: 15px;
+            box-shadow: 0 0 25px #ff0000, 0 0 40px #880000;
+            margin: 25px auto;
+        }
+       
+        .portrait {
+            width: 100%;
+            max-width: 280px;
+            height: 280px;
+            background: url('https://picsum.photos/id/1011/600/600') center/cover;
+            border: 6px solid #fff;
+            margin: 0 auto 15px;
+            display: block;
+            image-rendering: pixelated;
+            box-shadow: 0 0 15px #ff0000;
+        }
+       
+        .countdown-box {
+            background: #000;
+            border: 6px solid #00cc00;
+            padding: 20px;
+            margin: 30px auto;
+            text-align: center;
+            box-shadow: 0 0 20px #00ff00;
+        }
+       
+        .content-box {
+            background: #111;
+            border: 4px solid #666;
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+       
+        .headline {
+            color: #ff4444;
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.35rem;
+            text-shadow: 2px 2px 0 #000;
+        }
+       
+        footer {
+            width: 100%;
+            max-width: 620px;
+            text-align: center;
+            padding: 25px 15px;
+            color: #555;
+            font-size: 0.75rem;
+            border-top: 4px solid #222;
+        }
+       
+        /* Scrolling ticker animation */
+        @keyframes ticker {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+       
+        .ticker-content {
+            display: inline-block;
+            padding-right: 50px;
+            animation: ticker 25s linear infinite;
+        }
+       
+        @media (max-width: 480px) {
+            .portrait {
+                height: 240px;
+                max-width: 240px;
+            }
+            .logo {
+                font-size: 1.55rem;
+            }
+            #timer {
+                gap: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">TRUTH EXPOSED NETWORK</div>
+        <div style="color:#ff6666; font-size:0.9rem;">THE DAY THE TRUTH DROPS</div>
+    </header>
+   
+    <div class="news-ticker nes-container is-dark">
+        <div class="ticker-content">
+            ★ JULY 31 2026 — 9:00 AM ★ ALL PIPER JOHN COMBS FILES GO PUBLIC ★ REVEALING THE FULL EMPIRE ★
+        </div>
+    </div>
+   
+    <div class="main-container">
+        <!-- Wanted Poster -->
+        <div class="wanted-poster nes-container is-dark">
+            <div style="text-align:center; color:#ffcc00; font-size:1.1rem; margin-bottom:12px;">
+                WANTED • FOR CRIMES AGAINST TRUTH
+            </div>
+            <div class="portrait"></div>
+            <div style="text-align:center; line-height:1.5;">
+                <strong style="color:#ffdddd; font-size:1.05rem;">DO NOT LET HER BEAUTIFUL FACE FOOL YOU</strong><br>
+                <span style="color:#ffaaaa;">She looks innocent.</span><br>
+                <span style="color:#ff6666;">She is NOT.</span>
+            </div>
+        </div>
+       
+        <!-- Countdown -->
+        <div class="countdown-box nes-container is-rounded">
+            <div style="color:#00ff00; margin-bottom:15px; font-size:1rem;">
+                COUNTDOWN TO FULL DISCLOSURE
+            </div>
+            <div id="timer" style="display:flex; justify-content:center; gap:18px; flex-wrap:wrap;">
+                <div style="text-align:center;">
+                    <span id="days" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
+                    <span style="font-size:0.75rem;">DAYS</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="hours" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
+                    <span style="font-size:0.75rem;">HOURS</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="minutes" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
+                    <span style="font-size:0.75rem;">MIN</span>
+                </div>
+                <div style="text-align:center;">
+                    <span id="seconds" style="font-size:2.4rem; color:#00ff88; display:block;">00</span>
+                    <span style="font-size:0.75rem;">SEC</span>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Main Content -->
+        <div class="content-box nes-container is-dark">
+            <h2 class="headline">THE PIPER JOHN COMBS EXPOSÉ</h2>
+           
+            <p style="margin-bottom:18px;">
+                On <strong>July 31, 2026 at 9:00 AM</strong>, the complete files exposing the criminal empire of
+                <strong>Piper John Combs</strong> will be released to the public.
+            </p>
+           
+            <div style="background:#300; padding:18px; border-left:6px solid #ff0000; margin:20px 0;">
+                <strong>WARNING TO THE PUBLIC:</strong><br>
+                She looks innocent, but she is no less vicious than Daddy John Combs.
+            </div>
+           
+            <h3 style="color:#ffcc00; margin:20px 0 12px;">WHAT WILL BE REVEALED</h3>
+            <ul style="padding-left:20px; color:#ccc; line-height:1.8;">
+                <li>Financial crimes and money trails</li>
+                <li>Hidden networks and operations</li>
+                <li>Victim testimonies and evidence</li>
+                <li>Internal communications</li>
+                <li>The full scope of her activities</li>
+            </ul>
+        </div>
+    </div>
+   
+    <footer>
+        TRUTH EXPOSED NETWORK • UNCENSORED • JULY 31 2026<br>
+        THE MASK COMES OFF
+    </footer>
+   
+    <script>
+        const targetDate = new Date("2026-07-31T09:00:00").getTime();
+       
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+           
+            if (distance < 0) {
+                document.getElementById("timer").innerHTML = `
+                    <span style="color:#ff0000; font-size:1.8rem; text-align:center;">
+                        THE FILES ARE NOW PUBLIC
+                    </span>`;
+                return;
+            }
+           
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+           
+            document.getElementById("days").textContent = String(days).padStart(2, '0');
+            document.getElementById("hours").textContent = String(hours).padStart(2, '0');
+            document.getElementById("minutes").textContent = String(minutes).padStart(2, '0');
+            document.getElementById("seconds").textContent = String(seconds).padStart(2, '0');
+        }
+       
+        // Update every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
